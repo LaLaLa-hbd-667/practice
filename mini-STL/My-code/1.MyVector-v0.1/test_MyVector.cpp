@@ -54,10 +54,10 @@ int main() {
     assert(w.empty());
     assert(w.capacity() >= 100);
 
-    std::cout << "all tests passed\n";
-
+    
     w.clear(); w.push(42);                // clear 之后还能不能接着用
     assert(w.size() == 1 && w[0] == 42);
     
+    std::cout << "all tests passed\n";
     return 0;
 }
