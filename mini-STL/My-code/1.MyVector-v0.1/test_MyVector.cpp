@@ -31,6 +31,7 @@ int main() {
     for (int i = 0; i < 100; ++i) {
         v.push(i);
     }
+    assert(MyVector::live() == 1);        // 扩容 8 次，堆上仍只该有 1 块
     assert(v.size() == 103);
     assert(v[0] == 10 && v[1] == 20 && v[2] == 30);
     assert(v[3] == 0 && v[102] == 99);
@@ -54,5 +55,9 @@ int main() {
     assert(w.capacity() >= 100);
 
     std::cout << "all tests passed\n";
+
+    w.clear(); w.push(42);                // clear 之后还能不能接着用
+    assert(w.size() == 1 && w[0] == 42);
+    
     return 0;
 }
