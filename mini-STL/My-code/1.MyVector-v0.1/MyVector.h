@@ -11,12 +11,14 @@ public :
     bool empty() const;
     
     int& operator[](std::size_t index);
+    const int& operator[](std::size_t index) const;
     
 
     void push(int value);
     void reserve(std::size_t new_cap);
     void clear();
 
+    static int live();
 
 private:
     int *m_data;

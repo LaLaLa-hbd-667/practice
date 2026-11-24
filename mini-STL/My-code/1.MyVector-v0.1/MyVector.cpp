@@ -18,13 +18,15 @@ std::size_t MyVector::size() const { return m_size; }
 std::size_t MyVector::capacity() const { return m_capacity; }
 
 int& MyVector::operator[](std::size_t index){ return m_data[index]; }
+const int& MyVector::operator[](std::size_t index) const {return m_data[index]; }
 bool MyVector::empty() const { return m_size==0; }
+int MyVector::live(){ return slive; }
 
 void MyVector::relocate(std::size_t newcap){
     int *new_data = new int[newcap];
     ++slive;
 
-    for(int i=0;i<m_size;++i){
+    for(std::size_t i=0;i<m_size;++i){
         new_data[i]=m_data[i];
     }
 
